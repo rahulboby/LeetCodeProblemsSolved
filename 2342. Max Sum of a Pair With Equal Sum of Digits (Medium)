@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+class Solution:
+    def maximumSum(self, nums):
+        digitSumMap = defaultdict(int)
+        maxSum = -1
+
+        for num in nums:
+            digitSum = sum(int(d) for d in str(num))  # Compute sum of digits
+            if digitSum in digitSumMap:
+                maxSum = max(maxSum, num + digitSumMap[digitSum])
+            digitSumMap[digitSum] = max(digitSumMap[digitSum], num)  # Store max num
+
+        return maxSum
