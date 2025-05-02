@@ -1,0 +1,17 @@
+class Solution {
+
+    public static int bits(int n) {
+        if(n == 1 || n == 0)
+            return n;
+        
+        return n%2 + bits(n/2);
+    }
+
+    public int[] countBits(int n) {
+        int[] arr = new int[n+1];
+        for(int i = 0; i<=n; i++){
+            arr[i] = bits(i);
+        }
+        return arr;
+    }
+}
