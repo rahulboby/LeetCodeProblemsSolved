@@ -5,4 +5,5 @@ This includes various domains and languages like Java, Python, C, SQL, Pandas et
 This repository contains mostly the medium and hard questions I solve, and not the easy ones
 
 *This repository does not contain all my LeetCode solutions*
+
 LeetCode Profile: https://leetcode.com/u/0mlWyoRQ3B/
