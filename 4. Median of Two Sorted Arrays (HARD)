@@ -1,0 +1,29 @@
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        int len = len1 + len2;
+
+        // Pointers for nums1 and nums2
+        int i = 0, j = 0;
+        int current = 0, prev = 0;
+
+        // Iterate until we reach the middle of the merged length
+        for (int k = 0; k <= len / 2; k++) {
+            prev = current;  // Store previous element
+            if (i < len1 && (j >= len2 || nums1[i] <= nums2[j])) {
+                current = nums1[i++];
+            } else {
+                current = nums2[j++];
+            }
+        }
+
+        // If the length is odd, return the middle element
+        if (len % 2 != 0) {
+            return current;
+        } else {
+            // If the length is even, return the average of the two middle elements
+            return (prev + current) / 2.0;
+        }
+    }
+}
