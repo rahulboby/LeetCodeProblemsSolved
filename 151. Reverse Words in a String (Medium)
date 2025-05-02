@@ -1,0 +1,11 @@
+import java.util.StringTokenizer;
+class Solution {
+    public String reverseWords(String s) {
+        StringTokenizer st = new StringTokenizer(s);
+        String newString="";
+        while(st.hasMoreTokens()){
+            newString = st.nextToken()+" "+newString;
+        }
+        return newString.strip();
+    }
+}
