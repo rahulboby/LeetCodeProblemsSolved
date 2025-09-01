@@ -1,0 +1,23 @@
+import java.lang.Math;
+class Solution {
+    public int areaOfMaxDiagonal(int[][] dimensions) {
+        double max_diag = -1;
+        int max_area = -1;
+        boolean flag = false;
+        
+        for (int i = 0; i<dimensions.length; i++){
+            int area = dimensions[i][0]*dimensions[i][1];
+            double diag = Math.sqrt(dimensions[i][0]*dimensions[i][0] + dimensions[i][1]*dimensions[i][1]);
+            if(max_diag == diag){
+                max_area = max_area>area?max_area:area;
+            }
+            else if(diag>max_diag){
+                max_area = area;
+                max_diag = diag;
+            }
+        }
+        
+        return max_area;
+
+    }
+}
