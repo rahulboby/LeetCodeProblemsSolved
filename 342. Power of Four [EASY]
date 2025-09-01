@@ -1,0 +1,19 @@
+import java.lang.Math;
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        if(n <= 0){
+            return false;
+        }
+        if(n == 1){
+            return true;
+        }
+        if(n%4 != 0){
+            return false;
+        }
+        double val = Math.log(n)/Math.log(4);
+        if(val == (int) val){
+            return true;
+        }
+        return false;        
+    }
+}
