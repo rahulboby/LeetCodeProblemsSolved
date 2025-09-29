@@ -1,30 +1,24 @@
 class Solution {
-    public double myPow(double x, int n) {
-        
-        if(n==0){
+    public double myPow_helper(double x, int n) {
+        if(n == 0){
             return 1;
         }
+        if(n == 1){
+            return x;
+        }
+        if(n%2 == 0){
+            return myPow(x*x, n/2);
+        }
+        return x*(myPow(x, n-1));
+    }
 
-        if(x == 1){
-            return 1;
+    public double myPow(double x, int n){
+        if(n == Integer.MIN_VALUE){
+            return 1/(x*myPow_helper(x, Integer.MAX_VALUE));
         }
-        
-        if(x == -1){
-            return n%2==0?1:-1;
+        if(n<0){
+            return 1/myPow_helper(x, -n);
         }
-
-        if(n == -2147483648) {
-        	return 0.00000;
-        }
-        double product = x;
-        int i=1;
-        while(i<n || i<-n){
-            product *= x;
-            i++;
-        }
-        
-        
-        return Math.round((n>0?product:(1/product)) * 100000.0) / 100000.0;
-        
+        return myPow_helper(x, n);
     }
 }
