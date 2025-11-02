@@ -1,0 +1,29 @@
+class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+
+        int count = 0; // To count the number of duplicate pivots in the array
+        int[] new_nums = new int[nums.length];
+        int new_index = 0;
+
+        for(int num : nums){
+            if(num == pivot){
+                count++; // Update duplicate pivot count
+            }
+            else if(num<pivot){
+                new_nums[new_index] = num;
+                new_index++;
+            }
+        }
+        for(int i = 0; i<count; i++){
+            new_nums[new_index] = pivot;
+            new_index++;
+        }
+        for(int num : nums){
+            if(num>pivot){
+                new_nums[new_index] = num;
+                new_index++;
+            }
+        }
+        return new_nums;
+    }
+}
