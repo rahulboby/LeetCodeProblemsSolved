@@ -1,0 +1,34 @@
+import pandas as pd
+
+def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    return_df = pd.DataFrame({
+        'Department': [],
+        'Employee': [],
+        'Salary': []
+    })
+
+    dep_group = employee.groupby(['departmentId'])['salary'].max()
+
+    for id, salary in dep_group.items():
+        # Create temp_df to store a small dataframe for each max salary
+        temp_df = employee[
+            (employee['departmentId'] == id) & 
+            (employee['salary'] == salary)
+        ]
+        
+        # get department name from id using department table
+        dep_name = department.loc[
+            department['id'] == id, 'name'
+        ].values[0]
+
+        # Add the new temp_df to the return_df
+        for index, row in temp_df.iterrows():
+            return_df.loc[len(return_df)] = [
+                dep_name,
+                row['name'],
+                row['salary']
+            ]
+
+    
+    return return_df
+             
