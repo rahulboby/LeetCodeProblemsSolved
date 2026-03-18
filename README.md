@@ -6,4 +6,4 @@ This repository contains mostly the medium and hard questions I solve, and not t
 
 *This repository does not contain all my LeetCode solutions*
 
-LeetCode Profile: https://leetcode.com/u/0mlWyoRQ3B/
+LeetCode Profile: https://leetcode.com/u/rahulboby/
